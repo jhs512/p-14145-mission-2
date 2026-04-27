@@ -90,4 +90,10 @@ public class WiseSayingService {
         }
     }
 
+    // 빌드 (서비스)
+    public String build() {
+        // 리포지토리가 반환한 파일이름을 받아서 그대로 리턴
+        return wiseSayingRepository.build();
+    }
+
 }

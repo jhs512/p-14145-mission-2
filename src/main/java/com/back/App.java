@@ -44,7 +44,9 @@ public class App {
                 wiseSayingController.doModify(command);
             } else if (command.startsWith("삭제?")) {
                 wiseSayingController.doRemove(command);
-            } 
+            } else if (command.startsWith("빌드")) {
+                wiseSayingController.doBuild();
+            }
         }
     }
 }

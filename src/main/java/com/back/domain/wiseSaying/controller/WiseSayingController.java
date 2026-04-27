@@ -184,4 +184,16 @@ public class WiseSayingController {
             return defaultValue;
         }
     }
+
+    // 빌드 (컨트롤러)
+    public void doBuild() {
+        String fileName = wiseSayingService.build();
+
+        if (fileName == null) {
+            System.out.println("파일 생성에 실패했습니다.");
+            return;
+        }
+
+        System.out.println(fileName + " 파일의 내용이 갱신되었습니다.");
+    }
 }
