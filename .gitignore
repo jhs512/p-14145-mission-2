@@ -1,0 +1,45 @@
+### 개인 및 로컬 설정 파일 (제외 대상) ###
+.name
+/docs/요구사항.md
+/docs/Study.md
+/db/wiseSaying/*
+!/db/wiseSaying/.gitkeep
+/db/export/*
+mcp.json
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+gen/
+
+# .idea 내부의 특정 로컬 설정 파일들 (제외 확인)
+.idea/gradle.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/IntelliLang.xml
+.idea/modules.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/libraries/
+
+### Gradle 빌드 시스템 ###
+.gradle/
+build/
+
+# Gradle Wrapper (반드시 포함해야 하는 파일들)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+!settings.gradle.kts
+
+### OS 캐시 파일 ###
+.DS_Store
+Thumbs.db
+
+### 기타 부산물 ###
+*.class
+*.log
