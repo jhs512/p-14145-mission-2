@@ -45,6 +45,8 @@ public class ParseCmd {
                 return Command.DELETE;
             case "수정":
                 return Command.UPDATE;
+            case "빌드":
+                return Command.BUILD;
             default:
                 return Command.ERROR;
         }

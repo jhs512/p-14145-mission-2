@@ -146,6 +146,47 @@ public class Main {
         return lastId;
     }
 
+    public static void build(Map<Integer, WiseSaying> map) throws IOException {
+        File file = new File(basePath + "data.json");
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        FileWriter fw = new FileWriter(file);
+        PrintWriter pw = new PrintWriter(fw);
+
+        WiseSaying[] formArr = map.values().toArray(new WiseSaying[0]);
+        Arrays.sort(formArr, new Comparator<WiseSaying>() {
+            @Override
+            public int compare(WiseSaying o1, WiseSaying o2) {
+                return Integer.compare(o1.getId(), o2.getId());
+            }
+        });
+
+        pw.println("[");
+
+        int index = 0;
+        for (WiseSaying form : formArr) {
+            index++;
+
+            pw.println("\t{");
+            pw.println("\t\t\"id\": " + form.getId() + ",");
+            pw.println("\t\t\"content\": \"" + form.getText() + "\",");
+            pw.println("\t\t\"author\": \"" + form.getAuth() + "\"");
+
+            if (index < formArr.length) {
+                pw.println("\t},");
+            } else {
+                pw.println("\t}");
+            }
+        }
+
+        pw.println("]");
+
+        pw.close();
+        fw.close();
+    }
+
     static void main() {
         System.out.println("== 명언 앱 ==");
 
@@ -238,6 +279,13 @@ public class Main {
                     throw new RuntimeException(e);
                 }
 
+            } else if (cmd.getCommand() == Command.BUILD) {
+                try {
+                    build(forms);
+                    System.out.println("data.json 파일의 내용이 갱신되었습니다.");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
         }//while
